@@ -22,7 +22,7 @@ function Home() {
     field: 'image_url',
     headerName: 'Image',
     sortable: false, 
-    width: 190,
+    width: 150,
     renderCell: (params) => (
       <img className={s.img} src={params.row.image_url} alt={params.row.name} />
     )
@@ -31,7 +31,7 @@ function Home() {
     field: 'stock',
     headerName: 'Stock',
     sortable: true, 
-    width: 80,
+    width: 60,
     renderCell: (params) => (
       <div>
         {
@@ -41,35 +41,36 @@ function Home() {
     )
   }]
 return (
-    <div>
-        <h1>Tabla</h1>
-        <div className='d-flex flex-wrap mx-md-5 p-md-5 gap-sm-5 gap-4 justify-content-center'>
+    <div className={s.div}>
+        <h1 className={s.title}>TABLE</h1>
 
-        {
-          loading
-            ? <h3>Loading...</h3>
-            : error
-              ? alert(error) //eslint-disable-line
-              :<div style={{ height: 500, width: '100%' }}>
-                    <DataGrid
-                      className='fs-5 bg-white'
-                      initialState={{
-                        sorting: {
-                          sortModel: [{ field: 'id', sort: 'asc' }]
-                        }
-                      }}
-                      rows={rows}
-                      columns={columns.concat(imageColumn).concat(stockColumn)}
-                      pageSize={5}
-                      rowsPerPageOptions={[5]}
-                    />
-              </div>
-            
 
-        }
-</div>
+          {
+            loading
+              ? <h3>Loading...</h3>
+              : error
+                ? alert(error) //eslint-disable-line
+                :
 
-    </div>
+                  <div className={s.table}>
+                        <DataGrid
+                  
+                          initialState={{
+                            sorting: {
+                              sortModel: [{ field: 'id', sort: 'asc' }]
+                            }
+                          }}
+                          rows={rows}
+                          columns={columns.concat(stockColumn).concat(imageColumn)}
+                          pageSize={5}
+                          rowsPerPageOptions={[5]}
+                        />
+                  </div>
+              
+
+          }
+        </div>
+
   )
 }
 
