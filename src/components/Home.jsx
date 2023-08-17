@@ -14,7 +14,6 @@ const columns = [
 
 function Home() {
     const {data, loading, error} = useGetAllData()
-    console.log('aca estoy en el home',data)
 
   const rows = data.map(u => { return { id: u.id, name: u.name, category: u.category, brand: u.brand, perishable: u.perishable, expiration_date: u.expiration_date, image_url: u.image_url, stock: u.stock } }
   )

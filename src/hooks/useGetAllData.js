@@ -11,7 +11,6 @@ export default function useGetAllData() {
     const getData = async () => {
         const api = await axios.get('https://eokyg5j5on90it0.m.pipedream.net')
         const adapterApi = adapterData(api.data.data)
-        console.log(api)
         try {
             setState({
                 data: adapterApi,
