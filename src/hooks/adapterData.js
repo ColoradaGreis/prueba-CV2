@@ -1,4 +1,4 @@
-export default function adapterData (data) {
+export default function adapterData(data) {
     if (!Array.isArray(data)) return data
     return data.map(e => {
       return {
@@ -7,7 +7,7 @@ export default function adapterData (data) {
         category: e.category,
         brand: e.brand,
         perishable: e.perishable,
-        expiration_date: e.expiration_date,
+        expiration_date: e.expiration_date ? e.expiration_date.slice(0, 10) : null,
         image_url: e.image_url,
         stock: e.stock
       }
