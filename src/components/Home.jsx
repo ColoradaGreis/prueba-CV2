@@ -49,7 +49,7 @@ return (
             loading
               ? <h3>Loading...</h3>
               : error
-                ? alert(error) //eslint-disable-line
+                ? alert(error)
                 :
 
                   <div className={s.table}>
